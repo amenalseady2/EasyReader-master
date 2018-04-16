@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:id="@+id/oneimg_root"
+    android:orientation="vertical">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#ffffff"
+        android:padding="14.5dp">
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_marginRight="14dp"
+            android:layout_width="110dp"
+            android:layout_centerVertical="true"
+            android:layout_height="match_parent"
+            android:src="@mipmap/test"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:layout_toRightOf="@+id/iv_img"
+            android:id="@+id/tv_title"
+            style="@style/TextStyle_14_black"
+            android:layout_width="wrap_content"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:text="标题"
+            android:singleLine="true"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_toRightOf="@+id/iv_img"
+            android:id="@+id/status"
+            style="@style/TextStyle_14_666"
+            android:layout_centerVertical="true"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="世界经纪人"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            style="@style/TextStyle_10_999"
+            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_img"
+            android:drawableLeft="@mipmap/time_icon"
+            android:drawablePadding="5dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="两小时前"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/tv_seenum"
+            style="@style/TextStyle_10_999"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/tv_time"
+            android:drawableLeft="@mipmap/eye_icon"
+            android:drawablePadding="5dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="444"
+            android:textSize="15dp" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/div_line" />
+
+</LinearLayout>

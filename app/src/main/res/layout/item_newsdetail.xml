@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="12dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="17dp">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TextStyle_14_666"
+            android:layout_width="match_parent"
+            android:text="文章标题" />
+
+        <TextView
+            android:id="@+id/auther"
+            style="@style/TextStyle_12_999"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/title"
+            android:paddingTop="12dp"
+            android:text="装饰直播" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            style="@style/TextStyle_10_999"
+            android:layout_below="@+id/title"
+            android:layout_toLeftOf="@+id/tv_seenum"
+            android:drawableLeft="@mipmap/time_icon"
+            android:drawablePadding="5dp"
+            android:ellipsize="end"
+            android:paddingTop="12dp"
+            android:singleLine="true"
+            android:text="两小时前"
+            />
+
+        <TextView
+            android:id="@+id/tv_seenum"
+            style="@style/TextStyle_12_999"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/title"
+            android:layout_marginLeft="15dp"
+            android:drawableLeft="@mipmap/eye_icon"
+            android:drawablePadding="5dp"
+            android:ellipsize="end"
+            android:paddingRight="12dp"
+            android:paddingTop="12dp"
+            android:singleLine="true"
+            android:text="444"
+             />
+    </RelativeLayout>
+
+</RelativeLayout>

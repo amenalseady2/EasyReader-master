@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="#ffffff"
+    tools:context="com.BlackDiamond2010.hzs.ui.activity.lives.activity.SettingActivity">
+    <include layout="@layout/top_view"/>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_call"
+        android:layout_width="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_height="45dp">
+
+        <TextView
+            style="@style/TextStyle_13_black"
+            android:layout_centerVertical="true"
+            android:text="客服电话"/>
+        <TextView
+            android:id="@+id/tv_phonenum"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="400-1782-998"
+            android:textColor="@color/blue"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/div_line"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_height="45dp">
+
+        <TextView
+            style="@style/TextStyle_13_black"
+            android:layout_centerVertical="true"
+            android:text="信息通知"/>
+        <ImageView
+            android:id="@+id/info_tongzhi"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/kaiguan"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/div_line"/>
+    <RelativeLayout
+        android:id="@+id/re_help"
+        android:layout_width="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_height="45dp">
+
+        <TextView
+            style="@style/TextStyle_13_black"
+            android:layout_centerVertical="true"
+            android:text="帮助中心"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/go"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/div_line"/>
+    <RelativeLayout
+        android:id="@+id/re_alterpassword"
+        android:layout_width="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_height="45dp">
+
+        <TextView
+            style="@style/TextStyle_13_black"
+            android:layout_centerVertical="true"
+            android:text="修改密码"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/go"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/div_line"/>
+    <RelativeLayout
+        android:id="@+id/clear_rela"
+        android:layout_width="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_height="45dp">
+
+        <TextView
+            style="@style/TextStyle_13_black"
+            android:layout_centerVertical="true"
+            android:text="清楚缓存"/>
+        <TextView
+            android:id="@+id/tv_clear"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="0M"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/div_line"/>
+    <RelativeLayout
+        android:id="@+id/about_luyan"
+        android:layout_width="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_height="45dp">
+
+        <TextView
+            style="@style/TextStyle_13_black"
+            android:layout_centerVertical="true"
+            android:text="关于钻石路演"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/go"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/div_line"/>
+
+    <TextView
+        android:id="@+id/login_out"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/red"
+        android:gravity="center"
+        android:text="退出登录"
+        android:textColor="@color/colorWhite"
+        android:textSize="14dp" />
+
+</LinearLayout>

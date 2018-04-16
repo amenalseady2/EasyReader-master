@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/red">
+
+
+
+    <RelativeLayout
+        android:id="@+id/rl_personal_center"
+        android:layout_width="50dp"
+        android:gravity="center"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/home_personal"/>
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_maintitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="#ffffff"
+        android:textSize="16dp"/>
+
+
+    <ImageView
+        android:id="@+id/rigth_icon"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:src="@mipmap/sousuo_shangcheng"/>
+
+    <ImageView
+        android:id="@+id/rigth_icon2"
+        android:layout_toLeftOf="@+id/rigth_icon"
+        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/gouwuche_shangcheng"/>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_search"
+        android:layout_width="match_parent"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/search_bg"
+        android:layout_height="33dp"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/rl_personal_center">
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/search_img"
+            android:textColor="@color/text_999"
+            android:textSize="12dp"
+            android:drawablePadding="8dp"
+            android:text="搜索你想要的东西"/>
+    </RelativeLayout>
+</RelativeLayout>

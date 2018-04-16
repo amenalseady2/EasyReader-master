@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/item_project_root"
+    android:orientation="vertical">
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="8dp"
+    android:background="@color/main_backgroud_color"/>
+
+    <RelativeLayout
+        android:id="@+id/re_img"
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="185dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/test"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/company_status"
+            android:layout_width="72dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:text="已挂牌"
+            android:textSize="12dp"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:background="#55000000"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="50dp"
+            android:layout_centerVertical="true"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+            android:layout_marginRight="14dp"
+            android:layout_marginLeft="12dp"
+            android:src="@mipmap/test"/>
+
+        <TextView
+            android:id="@+id/tv_companyname"
+            android:layout_toRightOf="@+id/iv_logo"
+            style="@style/TextStyle_15_black"
+            android:singleLine="true"
+            android:layout_toLeftOf="@+id/iv_collect_btn"
+            android:paddingTop="12dp"
+            android:text="盛华夏"/>
+
+        <TextView
+            android:id="@+id/tv_hangye"
+            android:layout_toRightOf="@+id/iv_logo"
+            style="@style/TextStyle_12_999"
+            android:paddingBottom="12dp"
+            android:layout_alignParentBottom="true"
+            android:text="行业：金融行业"/>
+
+        <ImageView
+            android:id="@+id/iv_collect_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+            android:src="@mipmap/soucang_normal"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            android:id="@+id/tv_personalnum"
+            style="@style/TextStyle_12_999"
+            android:paddingBottom="12dp"
+            android:layout_alignParentRight="true"
+            android:drawablePadding="7dp"
+            android:drawableLeft="@mipmap/renshu_anli"
+            android:layout_marginRight="25dp"
+            android:layout_alignParentBottom="true"
+            android:text="200"/>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

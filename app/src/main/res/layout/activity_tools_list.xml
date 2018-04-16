@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.BlackDiamond2010.hzs.ui.activity.lives.activity.ToolsListActivity">
+
+    <include layout="@layout/top_view"/>
+
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/zonghe_paixu"
+            style="@style/TextStyle_13_black"
+            android:layout_marginRight="15dp"
+            android:padding="15dp"
+            android:text="综合排序" />
+
+        <TextView
+            android:id="@+id/fenlie"
+            style="@style/TextStyle_13_666"
+            android:padding="15dp"
+            android:text="全部" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/div_line"/>
+
+    <com.BlackDiamond2010.hzs.view.XRecycleView
+        android:id="@+id/recycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.BlackDiamond2010.hzs.view.XRecycleView>
+</LinearLayout>

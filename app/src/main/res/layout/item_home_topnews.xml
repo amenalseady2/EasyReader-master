@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/TextStyle_14_666"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:paddingBottom="15dp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:drawablePadding="12dp"
+        android:text="写了个ListView，给其设置了一个适配器(adapter)"
+        android:includeFontPadding="false"
+        android:drawableLeft="@mipmap/toutiao_shouye"
+         />
+</RelativeLayout>

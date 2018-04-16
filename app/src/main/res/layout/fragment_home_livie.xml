@@ -1,0 +1,282 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:id="@+id/scroll"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context="com.BlackDiamond2010.hzs.ui.activity.lives.fragment.HomeLiveFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:layerType="software"
+            android:background="@color/main_backgroud_color">
+
+            <com.BlackDiamond2010.hzs.ui.activity.lives.bezierViewPager.BezierViewPager
+                android:id="@+id/homeviewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:overScrollMode="never" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:background="@color/colorWhite">
+            <View
+                android:layout_width="2dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:background="@color/red"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                style="@style/TextStyle_15_black"
+                android:layout_centerVertical="true"
+                 android:text="路演直播"/>
+
+            <TextView
+                android:id="@+id/tv_live_more"
+                style="@style/TextStyle_14_666"
+                android:drawableRight="@mipmap/go"
+                android:text="更多"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+        <com.BlackDiamond2010.hzs.view.GridViewForScrollView
+            android:id="@+id/gv_live"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:background="#ffffff"
+            android:numColumns="2"
+            android:horizontalSpacing="15dp"
+
+            ></com.BlackDiamond2010.hzs.view.GridViewForScrollView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/main_backgroud_color"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:background="@color/colorWhite">
+            <View
+                android:layout_width="2dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:background="@color/red"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                style="@style/TextStyle_15_black"
+                android:layout_centerVertical="true"
+                android:text="路演头条"/>
+
+            <TextView
+                android:id="@+id/tv_live_luyan"
+                style="@style/TextStyle_14_666"
+                android:drawableRight="@mipmap/go"
+                android:text="更多"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+        <com.BlackDiamond2010.hzs.view.ListViewForScrollView
+            android:id="@+id/lv_luyan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="5dp"
+            android:divider="@null"
+            android:background="#ffffff"></com.BlackDiamond2010.hzs.view.ListViewForScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/main_backgroud_color"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:padding="15dp">
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:background="@color/red" />
+
+            <TextView
+                style="@style/TextStyle_15_black"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:text="精品案例" />
+
+            <TextView
+                android:id="@+id/tv_anlimore"
+                style="@style/TextStyle_14_666"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:drawableRight="@mipmap/go"
+                android:text="更多" />
+        </RelativeLayout>
+
+        <com.BlackDiamond2010.hzs.view.ListViewForScrollView
+            android:id="@+id/lv_anli"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="15dp"
+            android:divider="@color/colorWhite"
+            android:dividerHeight="10dp"
+            android:background="#ffffff"></com.BlackDiamond2010.hzs.view.ListViewForScrollView>
+
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/main_backgroud_color"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:padding="15dp">
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:background="@color/red" />
+
+            <TextView
+                style="@style/TextStyle_15_black"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:text="猜你喜欢" />
+
+            <TextView
+                android:id="@+id/tv_change"
+                style="@style/TextStyle_14_666"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:drawableLeft="@mipmap/change_icon"
+                android:drawablePadding="5dp"
+                android:text="换一换" />
+        </RelativeLayout>
+
+        <com.BlackDiamond2010.hzs.view.GridViewForScrollView
+            android:id="@+id/gv_youlike"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:horizontalSpacing="10dp"
+            android:numColumns="2"
+            android:paddingBottom="15dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:verticalSpacing="10dp"></com.BlackDiamond2010.hzs.view.GridViewForScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/main_backgroud_color"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:background="@color/colorWhite">
+            <View
+                android:layout_width="2dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:background="@color/red"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                style="@style/TextStyle_15_black"
+                android:layout_centerVertical="true"
+                android:text="热销榜"/>
+
+            <TextView
+                android:id="@+id/tv_hotsale_all"
+                style="@style/TextStyle_14_666"
+                android:drawableRight="@mipmap/go"
+                android:text="查看全部"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+        <com.BlackDiamond2010.hzs.view.GridViewForScrollView
+            android:id="@+id/gv_hotsale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:numColumns="3"
+            android:paddingBottom="15dp"
+            android:verticalSpacing="10dp"
+            android:horizontalSpacing="15dp"
+            android:background="#ffffff"></com.BlackDiamond2010.hzs.view.GridViewForScrollView>
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/main_backgroud_color"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:background="@color/colorWhite">
+            <View
+                android:layout_width="2dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:background="@color/red"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                style="@style/TextStyle_15_black"
+                android:layout_centerVertical="true"
+                android:text="精选文章"/>
+
+
+        </RelativeLayout>
+
+        <com.BlackDiamond2010.hzs.view.GridViewForScrollView
+            android:id="@+id/gv_wenzhang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:numColumns="2"
+            android:paddingBottom="15dp"
+            android:verticalSpacing="10dp"
+            android:horizontalSpacing="10dp"
+            android:background="#ffffff"></com.BlackDiamond2010.hzs.view.GridViewForScrollView>
+
+    </LinearLayout>
+
+</ScrollView>

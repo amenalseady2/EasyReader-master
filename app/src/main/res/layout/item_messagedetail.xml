@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@id/time_text"
+        android:text="2017-08105555"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="28dp"
+        android:layout_gravity="center_horizontal"
+         style="@style/TextStyle_13_666" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="7dp"
+        android:layout_height="wrap_content">
+
+        <com.BlackDiamond2010.hzs.view.CircleImageView
+            android:layout_width="30dp"
+            android:id="@+id/img"
+            android:src="@mipmap/test"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:layout_toRightOf="@+id/img"
+            android:background="@mipmap/messagebg"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="10dp"
+            android:text="你的商品由马云为你配送你的商品由马云为你配送你的商品由马云为你配送你的商品由马云为你配送"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</LinearLayout>

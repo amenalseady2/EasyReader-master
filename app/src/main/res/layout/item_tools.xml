@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingRight="15dp"
+    android:paddingLeft="15dp"
+    android:paddingTop="12dp"
+    android:background="#ffffff"
+    android:id="@+id/item_root"
+    android:layout_height="114dp">
+
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginRight="15dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/test"/>
+    <TextView
+        android:id="@+id/title"
+        android:layout_toRightOf="@+id/img"
+        android:text="路演工具包路演工具包"
+        android:textStyle="bold"
+        style="@style/TextStyle_14_black" />
+
+    <TextView
+        android:id="@+id/goumai"
+        android:layout_toRightOf="@+id/img"
+        android:text="已有111111人购买"
+        android:layout_marginBottom="12dp"
+        android:layout_alignParentBottom="true"
+        style="@style/TextStyle_13_666" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_above="@+id/goumai"
+        android:paddingBottom="8dp"
+        android:layout_toRightOf="@+id/img"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/price"
+            android:text="￥268"
+            android:textColor="@color/red"
+            style="@style/TextStyle_13_black" />
+
+        <TextView
+            android:id="@+id/org_price"
+            android:text="300"
+            android:paddingLeft="20dp"
+            android:layout_toRightOf="@+id/price"
+            android:textColor="@color/text_999"
+            style="@style/TextStyle_13_black" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/vip_price"
+        android:layout_toRightOf="@+id/img"
+        android:layout_below="@+id/title"
+        android:paddingTop="8dp"
+        android:text="vip"
+        android:textColor="@color/red"
+        style="@style/TextStyle_13_black" />
+
+    <View
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="105dp"
+        android:background="@color/div_line"/>
+</RelativeLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="34dp">
+
+
+        <com.BlackDiamond2010.hzs.view.CircleImageView
+            android:id="@+id/img"
+            android:layout_width="34dp"
+            android:layout_marginRight="12dp"
+            android:src="@mipmap/test"
+            android:layout_height="34dp" />
+        <TextView
+            android:id="@+id/name"
+            style="@style/TextStyle_14_black"
+            android:layout_toRightOf="@+id/img"
+            android:text="name"/>
+        <TextView
+            android:id="@+id/time"
+            android:layout_alignParentBottom="true"
+            style="@style/TextStyle_12_999"
+            android:layout_toRightOf="@+id/img"
+            android:text="time"/>
+
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/content"
+        android:paddingTop="16dp"
+        style="@style/TextStyle_14_black"
+        android:text="评价内容"/>
+
+    <LinearLayout
+        android:id="@+id/ll_img"
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img1"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:layout_weight="1"/>
+        <ImageView
+            android:id="@+id/img2"
+            android:visibility="gone"
+            android:scaleType="centerCrop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <ImageView
+            android:id="@+id/img3"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/huifu"
+        android:layout_marginTop="12dp"
+        android:background="@color/main_backgroud_color"
+        style="@style/TextStyle_13_666"
+        android:padding="10dp"
+        android:layout_toRightOf="@+id/img"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/div_line"
+        android:layout_marginTop="12dp"/>
+</LinearLayout>

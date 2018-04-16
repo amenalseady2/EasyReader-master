@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="121dp"
+    android:id="@+id/oneimg_root"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@color/main_backgroud_color" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="121dp"
+        android:background="#ffffff"
+        android:padding="15dp">
+
+        <TextView
+
+            android:id="@+id/tv_title"
+            style="@style/TextStyle_14_black"
+            android:layout_width="match_parent"
+            android:layout_toLeftOf="@+id/iv_img"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:singleLine="true"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/tv_jingjiren"
+            style="@style/TextStyle_14_666"
+            android:layout_centerVertical="true"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="世界经纪人"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            style="@style/TextStyle_10_999"
+            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@mipmap/time_icon"
+            android:drawablePadding="5dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="两小时前"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/tv_seenum"
+            style="@style/TextStyle_10_999"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/tv_time"
+            android:drawableLeft="@mipmap/eye_icon"
+            android:drawablePadding="5dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="444"
+            android:textSize="15dp" />
+
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="centerInside" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

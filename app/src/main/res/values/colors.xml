@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--f27404-->
+    <color name="colorPrimary">#f27404</color>
+    <color name="colorPrimaryDark">#000</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorTheme">#f27404</color>
+    <color name="colorWhite">#ffffffff</color>
+
+    <color name="black">#000</color>
+    <!--item的水波纹颜色-->
+    <color name="itemBackgroundWhite">#cfff</color>
+    <!--item的水波纹颜色-->
+    <color name="itemBackground">#DD7D7D7D</color>
+    <!--水波纹或5.0以下选择器颜色-->
+    <color name="tabBackground">#777D7D7D</color>
+    <!--item的5.0一下版本选择器颜色-->
+    <color name="itemLowBackground">#d9d9d9</color>
+    <!--tab标签栏文字的颜色-->
+    <color name="colorTabText">#585858</color>
+
+    <!--首页item文字颜色-->
+    <color name="colorSubtitle">#999</color>
+
+    <color name="colorTitle">#666</color>
+
+    <!--页面背景的颜色-->
+    <color name="colorPageBg">#f2f4f5</color>
+
+    <!--正文文字颜色-->
+    <color name="colorContent">#ff333333</color>
+
+    <!--谈红色  用于首页调整点击变色-->
+    <color name="colorSmallRed">#faebeb</color>
+
+    <!--首页分割线-->
+    <color name="colorHomeLine">#D4D4D4</color>
+    <!--知乎详情页底部文字颜色-->
+    <color name="bottom_text">#a9a9a9</color>
+
+    <color name="halfTranslucent">#1000</color>
+    <color name="translucent">#0fff</color>
+
+    <color name="comment_text">#5b5d5c</color>
+    <color name="comment_reply">#9ba4a3</color>
+    <color name="comment_btn">#bfbfbf</color>
+    <color name="comment_line">#dddddd</color>
+
+    <color name="comment_at">#5d8698</color>
+    <color name="colorText">#2C2C2C</color>
+    <!--电影评分-->
+    <color name="colorRateRed">#FB5B81</color>
+    <color name="tran">#00ffffff</color>
+
+    <!--item的分割线-->
+    <color name="colorLineItem">#FFDDDDDD</color>
+
+    <color name="colorLatestRead">#ff9d00</color>
+    <color name="e4">#e4e4e4</color>
+
+
+    <color name="album_default_palette_color_dark">#ff343a49</color>
+    <color name="colorPrimaryDarkTheme">#ff343a49</color>
+    <color name="colorPrimaryDarkDarkTheme">#ff2a2e3a</color>
+    <color name="colorAccentDarkTheme">#ffffffff</color>
+    <color name="colortest">#FF4D8DFF</color>
+    <color name="colortest1">#FF37B7FB</color>
+    //-------------------------自己项目中用到的颜色-----------------
+    <!--背景色-->
+    <color name="main_backgroud_color">#f3f3f3</color>
+    <!--item的分割线-->
+    <color name="div_line">#cdcdcd</color>
+
+    <color name="text_333">#333333</color>
+
+    <color name="text_666">#666666</color>
+
+    <color name="text_999">#999999</color>
+    <!--按键点亮的颜色，和一样亮色-->
+    <color name="red">#f37505</color>
+    <!---->
+    <color name="gray">#cdcdcd</color>
+    <color name="blue">#78c1ef</color>
+    
+    
+    
+</resources>

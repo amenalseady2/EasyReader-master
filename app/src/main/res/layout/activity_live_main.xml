@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dl_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:fitsSystemWindows="true">
+
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include
+            layout="@layout/home_appbar"
+            />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <com.BlackDiamond2010.hzs.view.CustomViewPager
+                android:id="@+id/vp_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite"
+                android:descendantFocusability="blocksDescendants" />
+        </FrameLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50.5dp">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/div_line"/>
+
+            <RadioGroup
+                android:id="@+id/rg"
+                android:layout_marginTop="0.5dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/tv_home"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawablePadding="4dp"
+                    android:drawableTop="@drawable/titlebar_disco"
+                    android:gravity="center"
+                    android:text="首页"
+                    android:checked="true"
+                    android:textColor="@drawable/main_textcolor"
+                    android:textSize="10dp" />
+
+                <RadioButton
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/tv_live"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:textSize="10dp"
+                    android:checked="false"
+                    android:drawablePadding="4dp"
+                    android:drawableTop="@drawable/titlebar_live"
+                    android:gravity="center"
+                    android:text="直播"
+                    android:textColor="@drawable/main_textcolor" />
+                <RadioButton
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/tv_project"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:textSize="10dp"
+                    android:drawablePadding="4dp"
+                    android:drawableTop="@drawable/titlebar_project"
+                    android:gravity="center"
+                    android:text="项目"
+                    android:textColor="@drawable/main_textcolor" />
+                <RadioButton
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/tv_toutiao"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:textSize="10dp"
+                    android:drawablePadding="4dp"
+                    android:drawableTop="@drawable/titlebar_topnews"
+                    android:gravity="center"
+                    android:text="头条"
+                    android:textColor="@drawable/main_textcolor" />
+                <RadioButton
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/tv_shop"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:textSize="10dp"
+                    android:drawablePadding="4dp"
+                    android:drawableTop="@drawable/titlebar_shop"
+                    android:gravity="center"
+                    android:text="商城"
+                    android:textColor="@drawable/main_textcolor" />
+
+            </RadioGroup>
+
+        </RelativeLayout>
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:visibility="gone"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:paddingTop="6dp"
+                android:layout_height="match_parent"
+                android:id="@+id/tv_home"
+                android:gravity="center"
+                android:text="首页"
+                android:textSize="10dp"
+                android:drawableTop="@drawable/titlebar_disco" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:paddingTop="6dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:id="@+id/tv_live"
+                android:text="直播"
+                android:textSize="10dp"
+                android:drawableTop="@drawable/titlebar_disco" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:paddingTop="6dp"
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:id="@+id/tv_project"
+                android:textSize="10dp"
+                android:text="项目"
+                android:drawableTop="@drawable/titlebar_disco" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingTop="6dp"
+                android:textSize="10dp"
+                android:layout_height="match_parent"
+                android:id="@+id/tv_toutiao"
+                android:text="头条"
+                android:drawableTop="@drawable/titlebar_disco" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:paddingTop="6dp"
+                android:textSize="10dp"
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:id="@+id/tv_shop"
+                android:text="商城"
+                android:drawableTop="@drawable/titlebar_disco" />
+
+        </LinearLayout>
+-->
+    </LinearLayout>
+    <include
+        android:id="@+id/include_nav_header_main"
+        layout="@layout/personal_center"
+        android:layout_marginTop="-27dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start" />
+
+
+</android.support.v4.widget.DrawerLayout>

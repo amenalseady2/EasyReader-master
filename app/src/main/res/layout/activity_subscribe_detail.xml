@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context="com.BlackDiamond2010.hzs.ui.activity.lives.activity.SubscribeDetailActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:background="@mipmap/fbrzy_bg">
+
+        <ImageView
+            android:id="@+id/back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@mipmap/back_white" />
+
+        <RelativeLayout
+            android:id="@+id/rl_dingyue"
+
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/div1"
+            android:layout_marginBottom="15dp">
+
+
+            <com.BlackDiamond2010.hzs.view.CircleImageView
+                android:id="@+id/img"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:src="@mipmap/test" />
+
+            <TextView
+                android:id="@+id/name"
+                style="@style/TextStyle_13_black"
+                android:layout_marginTop="12dp"
+                android:layout_toRightOf="@+id/img"
+                android:includeFontPadding="false"
+                android:text="名称" />
+
+            <TextView
+                android:id="@+id/tv_fans"
+                style="@style/TextStyle_12_666"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="12dp"
+                android:layout_toRightOf="@+id/img"
+                android:includeFontPadding="false"
+                android:text="粉丝数" />
+
+            <RelativeLayout
+                android:id="@+id/dingyue_btn"
+                android:layout_width="60dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/dingyue"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/jiadingyue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:drawableLeft="@mipmap/add_icon"
+                    android:drawablePadding="3dp"
+                    android:gravity="center"
+                    android:text="订阅"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14dp" />
+                <TextView
+                    android:id="@+id/yidingyue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:gravity="center"
+                    android:text="已订阅"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14dp" />
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@color/main_backgroud_color"/>
+
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginTop="9dp"
+        android:background="@drawable/dingyue_search"
+        android:drawableLeft="@mipmap/search_img"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:hint="搜索TA的直播"
+        android:paddingLeft="15dp"
+        android:textSize="13dp"
+        android:textColorHint="@color/text_999" />
+
+    <com.BlackDiamond2010.hzs.view.XRecycleView
+        android:id="@+id/live_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.BlackDiamond2010.hzs.view.XRecycleView>
+
+
+</LinearLayout>

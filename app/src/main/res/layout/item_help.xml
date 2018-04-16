@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:layout_height="45dp">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/TextStyle_13_black"
+        android:layout_centerVertical="true"
+        android:text="为什么要实名认证"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/go"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

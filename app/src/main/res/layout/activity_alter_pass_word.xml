@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="#ffffff"
+    tools:context="com.BlackDiamond2010.hzs.ui.activity.lives.activity.SettingActivity">
+    <include layout="@layout/top_view"/>
+
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:layout_height="55dp">
+
+    <TextView
+        style="@style/TextStyle_15_black"
+        android:layout_centerVertical="true"
+        android:text="旧密码"/>
+    <EditText
+        android:id="@+id/old"
+        android:layout_width="match_parent"
+        android:gravity="right"
+        android:maxLength="16"
+        android:inputType="textPassword"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:hint="请填写旧密码"
+        android:background="@null"
+        android:textColorHint="#cccccc"
+        android:textColor="@color/text_666"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/div_line"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_height="55dp">
+
+        <TextView
+            style="@style/TextStyle_15_black"
+            android:layout_centerVertical="true"
+            android:text="新密码"/>
+        <EditText
+            android:id="@+id/new_password"
+            android:layout_width="match_parent"
+            android:gravity="right"
+            android:maxLength="13"
+            android:inputType="textPassword"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:hint="请填写新密码"
+            android:background="@null"
+            android:textColorHint="#cccccc"
+            android:textColor="@color/text_666"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/div_line"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_height="55dp">
+
+        <TextView
+            style="@style/TextStyle_15_black"
+            android:layout_centerVertical="true"
+            android:text="确认密码"/>
+        <EditText
+            android:id="@+id/sure_password"
+            android:layout_width="match_parent"
+            android:gravity="right"
+            android:maxLength="13"
+            android:inputType="textPassword"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:hint="请确认新密码"
+            android:background="@null"
+            android:textColorHint="#cccccc"
+            android:textColor="@color/text_666"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/div_line"/>
+
+    <TextView
+        android:id="@+id/sure"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/red"
+        android:gravity="center"
+        android:text="确定"
+        android:textColor="@color/colorWhite"
+        android:textSize="14dp" />
+
+</LinearLayout>

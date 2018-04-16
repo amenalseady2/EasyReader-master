@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.BlackDiamond2010.hzs.view.XRecycleView
+        android:id="@+id/recycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.BlackDiamond2010.hzs.view.XRecycleView>
+
+
+    <TextView
+        android:id="@+id/nocolltion"
+        android:paddingTop="15dp"
+        style="@style/TextStyle_14_999"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:visibility="gone"/>
+</RelativeLayout>

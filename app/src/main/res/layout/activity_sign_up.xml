@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.BlackDiamond2010.hzs.ui.activity.lives.activity.SettingActivity">
+
+    <include layout="@layout/top_view" />
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="25dp"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:paddingTop="25dp"
+        android:text="路演兵法第63期：斯玛特教育"
+        android:textSize="13dp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/div_line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:paddingTop="15dp">
+
+        <TextView
+            style="@style/TextStyle_13_black"
+            android:layout_centerVertical="true"
+            android:maxEms="15"
+            android:text="用户名"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@null"
+            android:gravity="right"
+            android:hint="请输入用户名"
+            android:maxLength="16"
+            android:textColor="@color/black"
+            android:textColorHint="#cccccc"
+            android:textSize="13dp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/div_line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:paddingLeft="13dp"
+        android:paddingTop="15dp"
+        android:paddingRight="13dp">
+
+        <TextView
+            style="@style/TextStyle_13_black"
+            android:layout_centerVertical="true"
+            android:text="手机号码"
+             />
+
+        <EditText
+            android:id="@+id/phonenum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textSize="13dp"
+            android:maxEms="15"
+            android:gravity="right"
+            android:hint="请输入手机号码"
+            android:inputType="phone"
+            android:maxLength="16"
+            android:textColor="@color/black"
+            android:textColorHint="#cccccc"
+           />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/div_line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:paddingLeft="13dp"
+        android:paddingTop="15dp"
+        android:paddingRight="13dp">
+
+        <TextView
+            style="@style/TextStyle_13_black"
+            android:layout_centerVertical="true"
+            android:text="姓名"
+            />
+
+        <EditText
+            android:id="@+id/xingming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:gravity="right"
+            android:textSize="13dp"
+            android:maxEms="15"
+            android:hint="请输入姓名"
+            android:maxLength="16"
+            android:textColor="@color/black"
+            android:textColorHint="#cccccc"
+            />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/div_line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:paddingLeft="13dp"
+        android:paddingTop="15dp"
+        android:paddingRight="13dp">
+
+        <TextView
+            style="@style/TextStyle_13_black"
+            android:layout_centerVertical="true"
+            android:text="公司名称"
+            />
+
+        <EditText
+            android:id="@+id/companyname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:gravity="right"
+            android:hint="请输入公司名称"
+            android:maxLength="16"
+            android:textColor="@color/black"
+            android:textColorHint="#cccccc"
+            android:textSize="13dp"
+            android:maxEms="15"
+            />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/div_line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:paddingLeft="13dp"
+        android:paddingTop="15dp"
+        android:paddingRight="13dp">
+
+        <TextView
+            style="@style/TextStyle_13_black"
+            android:layout_centerVertical="true"
+            android:text="职务"
+            android:id="@+id/textView3" />
+
+        <EditText
+            android:id="@+id/zhiwu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:gravity="right"
+            android:hint="职务"
+            android:maxLength="16"
+            android:textColor="@color/black"
+            android:textColorHint="#cccccc"
+            android:textSize="13dp"
+            android:maxEms="15"
+             />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/div_line" />
+
+    <TextView
+        android:id="@+id/sure"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/red"
+        android:gravity="center"
+        android:text="提交"
+        android:textColor="@color/colorWhite"
+        android:textSize="14dp" />
+
+</LinearLayout>

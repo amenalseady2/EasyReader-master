@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xtao="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent" >
+
+    <include
+        android:id="@+id/top"
+        layout="@layout/top_view" />
+
+    <com.BlackDiamond2010.hzs.view.XRecycleView
+        android:id="@+id/goods_recycle"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/top"
+        android:layout_above="@+id/to_pay_relative"
+        android:layout_height="match_parent"></com.BlackDiamond2010.hzs.view.XRecycleView>
+
+
+    <RelativeLayout
+        android:id="@+id/to_pay_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:id="@+id/info_rela"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/div_line" />
+
+
+
+
+            <ImageView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/quanxuan_img"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/choice_normal"/>
+
+            <TextView
+                android:paddingLeft="5dp"
+                android:layout_toRightOf="@+id/quanxuan_img"
+                android:id="@+id/quanxuan_tv"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:text="全选"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:id="@+id/shopcart_price_relat"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                 android:layout_alignParentRight="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="合计："
+                    android:layout_marginRight="12dp"
+                    android:layout_toLeftOf="@+id/shopcart_price"
+                    android:textColor="@color/black"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/shopcart_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="￥0.00"
+                    android:layout_marginRight="12dp"
+                    android:layout_toLeftOf="@+id/shopcart_topay"
+                    android:textColor="@color/red"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/shopcart_topay"
+                    android:layout_width="105dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/red"
+                    android:gravity="center"
+                    android:text="去结算"
+                    android:layout_marginRight="15dp"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/shopcart_delect"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:text="删除"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <!--<RelativeLayout
+        android:id="@+id/nodata"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/top"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/shopcart_icon" />
+
+        <TextView
+            android:id="@+id/nodata_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/icon"
+            android:layout_centerHorizontal="true"
+            android:text="去商场逛逛"
+            android:textColor="@color/blue"
+            android:textSize="14sp" />
+    </RelativeLayout>-->
+
+</RelativeLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:id="@+id/orderroot"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:paddingLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/orderid"
+            style="@style/TextStyle_12_black"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
+            android:text="订单号:25987456985" />
+
+        <TextView
+            android:id="@+id/status"
+            style="@style/TextStyle_12_black"
+            android:layout_alignParentRight="true"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
+            android:paddingRight="15dp"
+            android:text="退款中"
+            android:textColor="@color/red" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/div_line"/>
+
+    <LinearLayout
+        android:id="@+id/myorder_child_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:orientation="vertical">
+
+        <com.BlackDiamond2010.hzs.view.ListViewForScrollView
+            android:id="@+id/myorder_child_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/colorWhite"
+
+            android:listSelector="@color/colorWhite"></com.BlackDiamond2010.hzs.view.ListViewForScrollView>
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:paddingBottom="14dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp"
+            android:text="共一件商品 合计：￥268.00(含运费)"
+            android:textColor="@color/black"
+            android:textSize="13sp" />
+
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@color/main_backgroud_color"/>
+</LinearLayout>

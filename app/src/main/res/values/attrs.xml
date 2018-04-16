@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="XImageView">
+        <attr name="borderRadius" format="dimension" />
+        <attr name="type">
+            <enum name="circle" value="0" />
+            <enum name="round" value="1" />
+        </attr>
+        <attr name="zoomSize" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="XGridView">
+        <attr name="hasGridLineBg" format="boolean" />
+        <attr name="gridOffset" format="dimension" />
+        <attr name="rowBackground" format="reference" />
+        <attr name="drawPosition">
+            <flag name="center" value="-1" />
+            <flag name="bottom" value="-2" />
+            <flag name="top" value="-4" />
+        </attr>
+        <attr name="left" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ADLayout">
+        <attr name="imageCorner" format="boolean" />
+        <attr name="imageCornerRadii" format="dimension" />
+        <attr name="titleGravity">
+            <flag name="left" value="-1" />
+            <flag name="center" value="-2" />
+            <flag name="right" value="-4" />
+        </attr>
+        <attr name="pointGravity">
+            <flag name="left" value="-1" />
+            <flag name="center" value="-2" />
+            <flag name="right" value="-4" />
+        </attr>
+        <attr name="titleColor" format="color" />
+        <attr name="titleBackgroundColor" format="color" />
+        <attr name="hasTitle" format="boolean" />
+        <attr name="hasPoint" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="XGallery">
+        <attr name="autoScroll" format="boolean" />
+        <attr name="delay" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="RotateTextView">
+        <attr name="degree" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleLoadingView">
+        <attr name="progress_color" format="color" />
+        <attr name="show" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ClearEditText">
+        <attr name="content" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ShSwitchView">
+        <attr name="tintColor" format="reference|color" />
+        <attr name="outerStrokeWidth" format="reference|dimension" />
+        <attr name="shadowSpace" format="reference|dimension" />
+    </declare-styleable>
+
+
+
+    <declare-styleable name="StaggeredGridView">
+    <attr name="column_count" format="integer" />
+    <attr name="column_count_portrait" format="integer" />
+    <attr name="column_count_landscape" format="integer" />
+    <attr name="item_margin" format="dimension" />
+    <attr name="grid_paddingLeft" format="dimension" />
+    <attr name="grid_paddingRight" format="dimension" />
+    <attr name="grid_paddingTop" format="dimension" />
+    <attr name="grid_paddingBottom" format="dimension" />
+</declare-styleable>
+</resources>

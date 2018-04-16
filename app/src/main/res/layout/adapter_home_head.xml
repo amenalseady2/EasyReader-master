@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_content"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingRight="10dp"
+    android:background="@color/colorWhite"
+    >
+
+
+    <ImageView
+        android:id="@+id/iv_goods"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_gravity="center_vertical"
+        android:scaleType="centerCrop" />
+
+
+    <TextView
+        android:id="@+id/home_title"
+        style="@style/TextStyle_12_666"
+        android:paddingBottom="1dp"
+        android:paddingLeft="5dp"
+        android:maxLength="6"
+        android:ellipsize="end"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:text="原来手链" />
+
+
+    <TextView
+        android:id="@+id/price"
+        style="@style/TextStyle_12_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="5dp"
+        android:maxWidth="150dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="8dp"
+        android:singleLine="true"
+        android:text="￥180.00" />
+
+
+</LinearLayout>

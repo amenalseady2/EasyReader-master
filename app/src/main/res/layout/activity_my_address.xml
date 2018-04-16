@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/main_backgroud_color"
+    tools:context="com.BlackDiamond2010.hzs.ui.activity.lives.activity.MyAddressActivity">
+
+
+    <include
+        android:id="@+id/topview"
+        layout="@layout/top_view"/>
+
+    <com.BlackDiamond2010.hzs.view.XRecycleView
+        android:id="@+id/address_recycle"
+        android:layout_below="@+id/topview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.BlackDiamond2010.hzs.view.XRecycleView>
+
+
+    <TextView
+        android:id="@+id/add_newsaddress"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:textSize="15dp"
+        android:textColor="#ffffff"
+        android:text="添加新地址"
+        android:background="@color/red"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:fitsSystemWindows="true"
+    tools:context="com.BlackDiamond2010.hzs.ui.activity.lives.activity.SearchActivity">
+
+    <RelativeLayout
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+
+            android:layout_toLeftOf="@+id/cancle"
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/dingyue_search"
+            android:drawableLeft="@mipmap/search_img"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:hint="请输入搜索关键字"
+            android:paddingLeft="15dp"
+            android:textSize="13dp"
+            android:imeActionLabel="搜索"
+            android:textColorHint="@color/text_999" />
+
+        <TextView
+            android:id="@+id/cancle"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:text="取消"
+            android:textSize="14dp"
+            android:textColorHint="@color/text_666"
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_record"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/lishi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_lishi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:layout_centerVertical="true"
+                android:textSize="14dp"
+                android:text="历史搜索"
+                android:textColor="@color/text_333"/>
+            <ImageView
+                android:id="@+id/delete_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/shanchu_searck"
+                />
+        </RelativeLayout>
+
+
+
+        <com.BlackDiamond2010.hzs.view.WordWrapView
+            android:id="@+id/wwv_record"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/lishi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></com.BlackDiamond2010.hzs.view.WordWrapView>
+
+    </RelativeLayout>
+
+
+
+
+    <com.BlackDiamond2010.hzs.view.XRecycleView
+        android:id="@+id/list"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.BlackDiamond2010.hzs.view.XRecycleView>
+</LinearLayout>

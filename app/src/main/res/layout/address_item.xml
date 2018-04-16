@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:id="@+id/address_root"
+    android:background="#ffffff" >
+
+    <ImageView
+        android:id="@+id/moren_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+       />
+
+    <TextView
+        android:id="@+id/address_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="姓名"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/address_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:paddingRight="15dp"
+        android:layout_alignParentRight="true"
+        android:paddingTop="15dp"
+        android:text="电话"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_name"
+        android:paddingBottom="15dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="浙江省杭州市江干区下沙江滨"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <View
+        android:id="@+id/div"
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/address"
+        android:background="@color/div_line" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/div" >
+
+        <ImageView
+            android:id="@+id/check_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:src="@mipmap/choice_normal_checked" />
+
+        <TextView
+            android:id="@+id/mo_ren"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="10dp"
+            android:layout_toRightOf="@+id/check_img"
+            android:text="设为默认"
+            android:textColor="@color/red"
+            android:textSize="14sp" />
+        
+        <ImageView
+            android:id="@+id/delete_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/delete_text"
+            android:layout_marginRight="3dp"
+            android:src="@mipmap/shanchu_dizhiguanli" />
+
+        <TextView
+            android:id="@+id/delete_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="删除"
+            android:paddingRight="15dp"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+        
+         
+
+        <TextView
+            android:id="@+id/bianji_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="编辑"
+            android:layout_toLeftOf="@+id/delete_img"
+            android:paddingRight="15dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+        <ImageView
+            android:id="@+id/bianji_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/bianji_text"
+            android:layout_marginRight="3dp"
+            android:src="@mipmap/bianji_dizhiguanli" />
+    </RelativeLayout>
+
+</RelativeLayout>

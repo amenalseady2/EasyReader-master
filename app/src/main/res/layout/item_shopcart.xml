@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_root"
+    android:layout_width="match_parent"
+    android:layout_height="114dp"
+    android:background="#ffffff"
+    android:paddingRight="15dp"
+    android:paddingTop="12dp">
+
+    <CheckBox
+        android:id="@+id/shopcart_item_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:button="@drawable/shopcart_check" />
+
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@+id/shopcart_item_checkbox"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/test" />
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/TextStyle_14_black"
+        android:layout_toRightOf="@+id/img"
+        android:paddingTop="5dp"
+        android:textStyle="bold" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/img"
+        android:paddingBottom="17dp">
+
+        <TextView
+            android:id="@+id/price"
+            style="@style/TextStyle_13_black"
+            android:textColor="@color/red" />
+
+        <TextView
+            android:id="@+id/org_price"
+            style="@style/TextStyle_13_999"
+            android:layout_toRightOf="@+id/price"
+            android:paddingLeft="10dp" />
+
+        <!--     <TextView
+                 android:id="@+id/num"
+                 android:text="X1"
+                 android:paddingLeft="20dp"
+                 android:layout_alignParentRight="true"
+                 style="@style/TextStyle_13_999" />-->
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+
+            <ImageView
+                android:id="@+id/iv_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/jia_icon" />
+
+            <TextView
+                android:id="@+id/num"
+                style="@style/TextStyle_13_999"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/iv_add"
+                android:text="1" />
+
+            <ImageView
+                android:id="@+id/iv_jian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/num"
+                android:src="@mipmap/jian_icon" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/vip_price"
+        style="@style/TextStyle_13_black"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/img"
+        android:textColor="@color/red" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="46dp"
+        android:background="@color/div_line" />
+</RelativeLayout>

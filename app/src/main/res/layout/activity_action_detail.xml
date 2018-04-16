@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:focusableInTouchMode="true"
+    android:focusable="true"
+    tools:context="com.BlackDiamond2010.hzs.ui.activity.lives.activity.SuerOrderActivity">
+
+
+
+    <include
+        android:id="@+id/top"
+        layout="@layout/top_view" />
+
+
+    <ScrollView
+        android:layout_above="@+id/baoming"
+        android:id="@+id/goods_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top">
+
+        <LinearLayout
+            android:background="#ffffff"
+            android:id="@+id/ll_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="155dp">
+
+                <ImageView
+                    android:id="@+id/headimg"
+                    android:scaleType="centerCrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/test"/>
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/yuyue"
+                    style="@style/TextStyle_12_black"
+                    android:layout_height="32dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/yuyue"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="20dp"
+                    android:text="直播预约"
+                    android:textColor="#fefefe" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/name"
+                style="@style/TextStyle_14_black"
+                android:text="路演兵法第63期：斯玛特教育"
+                android:paddingBottom="12dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="16dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:id="@+id/time"
+                style="@style/TextStyle_14_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="12dp"
+                android:paddingLeft="15dp"
+                android:text="直播时间：20170807 18:56" />
+
+            <TextView
+                android:id="@+id/address"
+                style="@style/TextStyle_14_black"
+                android:text="地址：北京市朝阳区东方广场"
+                android:paddingBottom="12dp"
+                android:paddingLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/jigou"
+                style="@style/TextStyle_14_black"
+                android:text="主讲机构：黑钻石国际传媒"
+                android:paddingBottom="16dp"
+                android:paddingLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="15dp"
+                android:background="@color/div_line"/>
+            <TextView
+
+                style="@style/TextStyle_14_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="15dp"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@mipmap/huodong_jianjie"
+                android:paddingLeft="15dp"
+                android:text="活动简介" />
+
+            <TextView
+                android:id="@+id/huodong_jianjie"
+                style="@style/TextStyle_14_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"/>
+
+
+            <TextView
+
+                style="@style/TextStyle_14_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="15dp"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@mipmap/jiangshi"
+                android:paddingLeft="15dp"
+                android:text="讲师信息" />
+
+            <TextView
+                android:id="@+id/jiangsi"
+                style="@style/TextStyle_14_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="15dp"/>
+
+            <TextView
+                style="@style/TextStyle_14_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="15dp"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@mipmap/jigou"
+                android:paddingLeft="15dp"
+                android:text="合作机构" />
+
+            <TextView
+                android:id="@+id/hezuo_jigou"
+                style="@style/TextStyle_14_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="15dp"/>
+
+            <TextView
+
+                style="@style/TextStyle_14_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15dp"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@mipmap/huodong_yicheng"
+                android:paddingLeft="15dp"
+                android:text="活动议程" />
+
+            <ImageView
+                android:id="@+id/yicheng_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                />
+
+            <TextView
+
+                style="@style/TextStyle_14_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15dp"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@mipmap/huodong_xiangqing"
+                android:paddingLeft="15dp"
+                android:layout_marginBottom="15dp"
+                android:text="活动详情" />
+
+            <com.BlackDiamond2010.hzs.view.ListViewForScrollView
+                android:id="@+id/list_xiangqing"
+                android:layout_width="match_parent"
+                android:divider="#ffffff"
+                android:layout_height="200dp"></com.BlackDiamond2010.hzs.view.ListViewForScrollView>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+<TextView
+    android:id="@+id/baoming"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:textColor="#ffffff"
+    android:textSize="13dp"
+    android:gravity="center"
+    android:background="@color/red"
+    android:text="报名线下参加"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentStart="true" />
+</RelativeLayout>

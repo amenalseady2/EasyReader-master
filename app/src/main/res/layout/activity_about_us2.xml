@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/main_backgroud_color"
+    tools:context="com.BlackDiamond2010.hzs.ui.activity.lives.activity.AboutUsActivity">
+    <include layout="@layout/top_view"
+        android:id="@+id/top"/>
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_below="@+id/top"
+        android:layout_marginTop="35dp"
+        android:src="@mipmap/luyan_logo"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        style="@style/TextStyle_15_black"
+        android:text="路演大侠" />
+    <TextView
+        android:id="@+id/banben"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        style="@style/TextStyle_12_999"
+        android:text="v1.0" />
+
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/banben"
+        android:background="#ffffff"
+        android:text="本次更新时间：217-11-05\n1.修复顶部图片变形\n2.支付错误修改\n3.新增vip说明\n4.修复无视频封面问题\n5.新增邀请好友分享内容"
+        android:textColor="@color/text_333"
+        android:padding="10dp"
+        android:textSize="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="180dp" />
+
+    <TextView
+        android:layout_alignParentBottom="true"
+        android:text="黑钻石（北京）文化传媒股份有限公司"
+        android:textColor="@color/black"
+        android:padding="10dp"
+        android:gravity="center"
+        android:textSize="11dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

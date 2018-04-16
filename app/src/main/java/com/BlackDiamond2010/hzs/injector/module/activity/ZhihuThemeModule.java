@@ -1,0 +1,22 @@
+package com.BlackDiamond2010.hzs.injector.module.activity;
+
+import com.BlackDiamond2010.hzs.adapter.ZhihuThemeAdapter;
+
+import java.util.ArrayList;
+
+import javax.inject.Singleton;
+
+import dagger.Module;
+import dagger.Provides;
+
+/**
+ * Created by quantan.liu on 2017/4/8.
+ */
+@Module
+public class ZhihuThemeModule {
+    @Provides
+    @Singleton
+    public ZhihuThemeAdapter provideAdapter() {
+        return new ZhihuThemeAdapter(new ArrayList());
+    }
+}

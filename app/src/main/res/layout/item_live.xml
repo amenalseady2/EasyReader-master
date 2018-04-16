@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/root"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/div"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/main_backgroud_color"/>
+
+
+    <RelativeLayout
+        android:layout_below="@+id/div"
+        android:layout_width="match_parent"
+        android:layout_height="163dp">
+
+        <ImageView
+            android:id="@+id/iv_bigimgpath"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+          />
+
+        <View
+            android:id="@+id/title_bg"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#33000000"/>
+        <TextView
+            android:id="@+id/live_status"
+            android:layout_width="79dp"
+            android:layout_height="30dp"
+            android:text="直播中"
+            android:textSize="12dp"
+            android:textColor="#ffffff"
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical"
+            android:background="@mipmap/zhibozhong_shouye"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/tv_personalnum_and_time"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textSize="12dp"
+            android:textColor="#eeeeee"
+            android:layout_alignParentRight="true"
+            android:paddingRight="10dp"
+            android:gravity="center_vertical"
+            />
+
+        <ImageView
+            android:id="@+id/iv_ren"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/tv_personalnum_and_time"
+            android:layout_width="wrap_content"
+            android:src="@mipmap/renshu_anli"
+            android:layout_height="30dp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:layout_marginTop="168dp">
+        <TextView
+            android:id="@+id/title"
+            android:singleLine="true"
+            android:padding="13dp"
+            android:ellipsize="end"
+
+            android:layout_toLeftOf="@+id/time"
+            android:layout_width="match_parent"
+            style="@style/TextStyle_14_black"/>
+        <TextView
+            android:id="@+id/time"
+            android:singleLine="true"
+            android:padding="13dp"
+            android:layout_alignParentRight="true"
+            style="@style/TextStyle_12_666"/>
+    </RelativeLayout>
+</RelativeLayout>
