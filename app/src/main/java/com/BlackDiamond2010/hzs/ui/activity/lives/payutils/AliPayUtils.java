@@ -127,7 +127,7 @@ public class AliPayUtils {
 //				// 调用查询接口，获取查询结果
 //				boolean isExist = payTask.checkAccountIfExist();
 //
-//				Message msg = new Message();
+//				MessageUtil msg = new MessageUtil();
 //				msg.what = SDK_CHECK_FLAG;
 //				msg.obj = isExist;
 //				mHandler.sendMessage(msg);

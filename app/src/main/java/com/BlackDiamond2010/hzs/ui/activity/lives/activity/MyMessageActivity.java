@@ -1,5 +1,6 @@
 package com.BlackDiamond2010.hzs.ui.activity.lives.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -100,7 +101,6 @@ public class MyMessageActivity extends BaseActivity {
         }
 
 
-
         String XIAOMISHU = SHPUtils.getParame(this, SHPUtils.ORDER_MESSAGE);
         if (StringUtil.isEmpty(XIAOMISHU)) {
             MessageType model = new MessageType();
@@ -152,7 +152,7 @@ public class MyMessageActivity extends BaseActivity {
         if (StringUtil.isEmpty(message)) {
             MessageType model = new MessageType();
             model.content = "还没有收到任何通知";
-            model.time =  "";
+            model.time = "";
             model.type = 2;
             model.num = 0;
             mMessageList.add(model);
@@ -200,12 +200,16 @@ public class MyMessageActivity extends BaseActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (mMessageList.get(position).num == 0 ){
-                    mackToastLONG("没有任何通知信息" ,MyMessageActivity.this);
-                }else {
-                    CommonUtils.startActWithData(MyMessageActivity.this, MessageDetailActivity.class, "type", mMessageList.get(position).type);
+                if (position == 0) {
+                    Intent intent = new Intent(MyMessageActivity.this, TodayTopicActivity.class);
+                    startActivity(intent);
+                } else {
+                    if (mMessageList.get(position).num == 0) {
+                        mackToastLONG("没有任何通知信息", MyMessageActivity.this);
+                    } else {
+                        CommonUtils.startActWithData(MyMessageActivity.this, MessageDetailActivity.class, "type", mMessageList.get(position).type);
+                    }
                 }
-
             }
         });
     }

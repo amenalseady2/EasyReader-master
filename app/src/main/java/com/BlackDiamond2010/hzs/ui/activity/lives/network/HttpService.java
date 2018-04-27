@@ -1,5 +1,6 @@
 package com.BlackDiamond2010.hzs.ui.activity.lives.network;
 
+import com.BlackDiamond2010.hzs.bean.ProductDetails.Product;
 import com.BlackDiamond2010.hzs.ui.activity.lives.adapter.base.ToolListModel;
 import com.BlackDiamond2010.hzs.ui.activity.lives.bean.AddressModel;
 import com.BlackDiamond2010.hzs.ui.activity.lives.bean.GoodDetailModel;
@@ -30,7 +31,10 @@ import java.util.List;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.HTTP;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -432,8 +436,6 @@ public interface HttpService {
 
 
     /**
-     *
-     *
      * @return
      */
     @FormUrlEncoded
@@ -444,8 +446,6 @@ public interface HttpService {
             @Field("type") int type);
 
     /**
-     *
-     *
      * @return
      */
     @FormUrlEncoded
@@ -506,8 +506,8 @@ public interface HttpService {
     );
 
     /*
-    * 订单搜索
-    * */
+     * 订单搜索
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.ORDERSERACH)
     Observable<HttpResult<MyOrderModel>> orderSearch(
@@ -517,8 +517,8 @@ public interface HttpService {
     );
 
     /*
-* 首页直播搜索
-* */
+     * 首页直播搜索
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.HOMESERACH)
     Observable<HttpResult<LiveModel>> homeSearch(
@@ -529,8 +529,8 @@ public interface HttpService {
     );
 
     /*
-* 商品收藏
-* */
+     * 商品收藏
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.GOODSSERACH)
     Observable<HttpResult<ToolListModel>> goodsSearch(
@@ -541,8 +541,8 @@ public interface HttpService {
     );
 
     /*
-* 头条搜索
-* */
+     * 头条搜索
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.NEWSERACH)
     Observable<HttpResult<NewsBean>> newsSearch(
@@ -553,8 +553,8 @@ public interface HttpService {
     );
 
     /*
-* 头条搜索
-* */
+     * 头条搜索
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.PROJECTSERACH)
     Observable<HttpResult<ProjectModel>> projectSearch(
@@ -565,8 +565,8 @@ public interface HttpService {
     );
 
     /*
-* 头条搜索
-* */
+     * 头条搜索
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.CREAT_ORDER)
     Observable<HttpResult<Risgter>> creatorder(
@@ -580,10 +580,9 @@ public interface HttpService {
             @Field("device") String device);
 
 
-
     /*
-* 修改用户信息
-* */
+     * 修改用户信息
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.ALTERUSERINFO)
     Observable<HttpResult<Object>> alterUserInfo(
@@ -598,8 +597,8 @@ public interface HttpService {
 
 
     /*
-* vip购买记录
-* */
+     * vip购买记录
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.VIPRECORD)
     Observable<HttpResult<VIPModel>> viprecord(
@@ -609,8 +608,8 @@ public interface HttpService {
 
 
     /*
- * 预告
- * */
+     * 预告
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.LIVEPREVAE)
     Observable<HttpResult<LiveDetailModel>> livePrevae(
@@ -619,17 +618,18 @@ public interface HttpService {
             @Field("device") String device);
 
     /*
-* 回归
-* */
+     * 回归
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.LIVEREVIEW)
     Observable<HttpResult<LiveDetailModel>> livereview(
 
             @Field("id") String id,
             @Field("device") String device);
+
     /*
-* 回归
-* */
+     * 回归
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.LIVEDetail)
     Observable<HttpResult<LiveDetailModel>> live(
@@ -638,11 +638,9 @@ public interface HttpService {
             @Field("device") String device);
 
 
-
-
-        /*
- * 添加订阅
- * */
+    /*
+     * 添加订阅
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.ADDSUBSCRIBE)
     Observable<HttpResult<Object>> addSubscribe(
@@ -651,8 +649,8 @@ public interface HttpService {
             @Field("device") String device);
 
     /*
-* 报名
-* */
+     * 报名
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.LIVESIGNUP)
     Observable<HttpResult<Object>> signup(
@@ -667,9 +665,9 @@ public interface HttpService {
             @Field("device") String device);
 
 
-   /*
-* 我的订阅
-* */
+    /*
+     * 我的订阅
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.MYSUBSCRIBE)
     Observable<HttpResult<MyDingYueModel>> mySubscribe(
@@ -677,8 +675,8 @@ public interface HttpService {
             @Field("device") String device);
 
     /*
-* 我的订阅
-* */
+     * 我的订阅
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.SERACHSUBSCRIBE)
     Observable<HttpResult<LiveModel>> pubshSubscribe(
@@ -688,8 +686,8 @@ public interface HttpService {
             @Field("device") String device);
 
     /*
-* 我的订阅
-* */
+     * 我的订阅
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.CLEAR_AND_REVICE)
     Observable<HttpResult<Object>> cancleOrder(
@@ -698,8 +696,8 @@ public interface HttpService {
             @Field("device") String device);
 
     /*
-* 我的订阅
-* */
+     * 我的订阅
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.SERVER_LIST)
     Observable<HttpResult<MyOrderModel>> serverList(
@@ -707,17 +705,16 @@ public interface HttpService {
             @Field("device") String device);
 
 
-
     /*
- * */
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.ORDER_DETAIL)
     Observable<HttpResult<MyOrderDeatilModel>> orderDetail(
             @Field("order_sn") String id,
             @Field("device") String device);
 
-  /*
- * */
+    /*
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.ORDEREVALUATE)
     Observable<HttpResult<Object>> orderEva(
@@ -728,15 +725,16 @@ public interface HttpService {
             @Field("image") String image);
 
 
-     /*
- * */
+    /*
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.EXPRESS)
     Observable<HttpResult<LogisticsModel>> express(
             @Field("id") String id,
             @Field("device") String device);
+
     /*
-* */
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.SERVER_DATAIL)
     Observable<HttpResult<LogisticsModel>> serverDetail(
@@ -745,7 +743,7 @@ public interface HttpService {
 
 
     /*
-* */
+     * */
     @FormUrlEncoded
     @POST(HttpConfig.SERVER_CREAT)
     Observable<HttpResult<Object>> servercreat(
@@ -756,16 +754,13 @@ public interface HttpService {
             @Field("image") String image);
 
 
-
-
-
     @FormUrlEncoded
     @POST(HttpConfig.REGISTER_CHAT)
     Observable<HttpResult<Object>> regist_chat(
-                    @Field("id") String id,
-                    @Field("device") String device,
-                    @Field("client_id") String client_id
-            );
+            @Field("id") String id,
+            @Field("device") String device,
+            @Field("client_id") String client_id
+    );
 
     @FormUrlEncoded
     @POST(HttpConfig.UNREGISTER_CHAT)
@@ -814,7 +809,7 @@ public interface HttpService {
     Observable<HttpResult<LiveDetailModel>> actionDetail(
 
             @Field("id") String id,
-             @Field("device") String device
+            @Field("device") String device
     );
 
     @FormUrlEncoded

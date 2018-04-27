@@ -1,5 +1,6 @@
 package com.BlackDiamond2010.hzs.ui.activity.lives.fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.webkit.WebView;
 
@@ -9,6 +10,7 @@ import com.BlackDiamond2010.hzs.ui.fragment.BaseFragment;
 
 import butterknife.BindView;
 
+@SuppressLint("ValidFragment")
 public class goodsDetailFragment extends BaseFragment {
     @BindView(R.id.detail_content)
     WebView detailContent;

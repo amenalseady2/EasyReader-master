@@ -20,4 +20,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="data_loading">正在加载&#8230;</string>
     <string name="viewpager_indicator">%1$d/%2$d</string>
+    <string name="buy_num">购买数量</string>
+    <string name="sure">确定</string>
+    <string name="add">+</string>
+    <string name="reduce">-</string>
+    <string name="size">尺寸大小</string>
+    <string name="color_type">颜色分类</string>
+    <string name="default_num">1</string>
 </resources>

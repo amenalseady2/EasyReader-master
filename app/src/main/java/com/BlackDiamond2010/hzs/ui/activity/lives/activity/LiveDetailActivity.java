@@ -5,9 +5,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -19,6 +21,8 @@ import android.widget.TextView;
 
 import com.BlackDiamond2010.hzs.R;
 import com.BlackDiamond2010.hzs.app.MyApplication;
+import com.BlackDiamond2010.hzs.bean.chat.Chat;
+import com.BlackDiamond2010.hzs.http.service.ChatService;
 import com.BlackDiamond2010.hzs.ui.activity.base.BaseActivity;
 import com.BlackDiamond2010.hzs.ui.activity.lives.adapter.LiveMessageDatailAdapter;
 import com.BlackDiamond2010.hzs.ui.activity.lives.bean.HttpResult;
@@ -51,6 +55,11 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 //正在直播详情
 public class LiveDetailActivity extends BaseActivity {
@@ -114,6 +123,8 @@ public class LiveDetailActivity extends BaseActivity {
     @BindView(R.id.rl_hudong)
     RelativeLayout rlHudong;
 
+    String name;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_live_detail;
@@ -138,8 +149,19 @@ public class LiveDetailActivity extends BaseActivity {
         messageDatailAdapter = new LiveMessageDatailAdapter(messagesList);
         messageList.setAdapter(messageDatailAdapter);
 
+        name = SHPUtils.getParame(getApplicationContext(), SHPUtils.NICKNAME);
+
+        sendMessage(1);
+
+        getChatList(id);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        sendMessage(1);
+        getChatList(id);
+    }
 
     public class Receiver extends BroadcastReceiver {
 
@@ -294,12 +316,12 @@ public class LiveDetailActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (data != null){
-            if(requestCode == 888){
+        if (data != null) {
+            if (requestCode == 888) {
 
 
-                model.is_subscribe = data.getIntExtra("type",0);
-                if ( model.is_subscribe == 1) {
+                model.is_subscribe = data.getIntExtra("type", 0);
+                if (model.is_subscribe == 1) {
 
                     jiadingyue.setVisibility(View.GONE);
                     yidingyue.setVisibility(View.VISIBLE);
@@ -312,7 +334,8 @@ public class LiveDetailActivity extends BaseActivity {
         }
 
     }
-    @OnClick({R.id.jiadingyue,R.id.yidingyue,R.id.rl_dingyue,R.id.cha, R.id.erweima, R.id.submit, R.id.shoucang, R.id.detail_back, R.id.tv_personalnum, R.id.action_btn, R.id.share_icon})
+
+    @OnClick({R.id.jiadingyue, R.id.yidingyue, R.id.rl_dingyue, R.id.cha, R.id.erweima, R.id.submit, R.id.shoucang, R.id.detail_back, R.id.tv_personalnum, R.id.action_btn, R.id.share_icon})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_dingyue:
@@ -321,22 +344,22 @@ public class LiveDetailActivity extends BaseActivity {
                 mo.avatar = model.publisher_avatar;
                 mo.id = model.publisher_id;
                 mo.fans = model.publisher_fans;
-                Intent intent = new Intent(LiveDetailActivity.this,SubscribeDetailActivity.class);
-                intent.putExtra("isSu",model.is_subscribe);
-                intent.putExtra("model",mo);
-                startActivityForResult(intent,888);
+                Intent intent = new Intent(LiveDetailActivity.this, SubscribeDetailActivity.class);
+                intent.putExtra("isSu", model.is_subscribe);
+                intent.putExtra("model", mo);
+                startActivityForResult(intent, 888);
                 break;
             case R.id.jiadingyue:
             case R.id.yidingyue:
 
-            addSub();
+                addSub();
                 break;
 
             case R.id.cha:
                 rlHudong.setVisibility(View.GONE);
                 break;
             case R.id.submit:
-                if (!StringUtil.isEmpty(content.getText().toString())) {
+                /*if (!StringUtil.isEmpty(content.getText().toString())) {
                     sendChat(content.getText().toString());
 
                     LiveDetailMessage message = new LiveDetailMessage();
@@ -346,12 +369,14 @@ public class LiveDetailActivity extends BaseActivity {
                     messagesList.add(0, message);
                     messageDatailAdapter.setData(messagesList);
                     content.setText("");
-                }
+                }*/
+
+                sendMessage(0);
 
                 break;
             case R.id.share_icon:
                 View viewRoot = LiveDetailActivity.this.findViewById(R.id.live_detail_root);
-                ShareUtil u = new ShareUtil(LiveDetailActivity.this,viewRoot, liveModel.title,R.drawable.luyan_logo,liveModel.info,liveModel.share,1);
+                ShareUtil u = new ShareUtil(LiveDetailActivity.this, viewRoot, liveModel.title, R.drawable.luyan_logo, liveModel.info, liveModel.share, 1);
 
                 break;
             case R.id.shoucang:
@@ -369,6 +394,77 @@ public class LiveDetailActivity extends BaseActivity {
             case R.id.erweima:
                 getDialogAndshow();
                 break;
+        }
+    }
+
+    private void getChatList(String id) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://47.95.224.184/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ChatService chatService = retrofit.create(ChatService.class);
+        Call<Chat> call = chatService.getChatList(id);
+        call.enqueue(new Callback<Chat>() {
+            @Override
+            public void onResponse(Call<Chat> call, Response<Chat> response) {
+                Chat chat = response.body();
+                Log.e("result", "onResponse: " + chat.toString());
+                if (chat.getCode() == 200) {
+                    List<Chat.DataBean.ListBean> list = chat.getData().getList();
+                    for (int i = 0; i < list.size(); i++) {
+                        Chat.DataBean.ListBean listBean = list.get(i);
+                        sendChat(listBean.getContent());
+
+                        LiveDetailMessage message = new LiveDetailMessage();
+                        message.avatar = listBean.getAvatar();
+                        message.nickname = listBean.getNickname();
+                        message.content = listBean.getContent();
+                        messagesList.add(0, message);
+                        messageDatailAdapter.setData(messagesList);
+                        content.setText("");
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Chat> call, Throwable t) {
+                mackToastSHORT(t.getMessage(), LiveDetailActivity.this);
+            }
+        });
+    }
+
+    private void sendMessage(int type) {
+        SharedPreferences sharedPreferences = getSharedPreferences("info", MODE_PRIVATE);
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        if (type == 0) {
+            if (!StringUtil.isEmpty(content.getText().toString())) {
+                sendChat(content.getText().toString());
+
+                LiveDetailMessage message = new LiveDetailMessage();
+                message.avatar = SHPUtils.getParame(getApplicationContext(), SHPUtils.HEAD);
+                message.nickname = SHPUtils.getParame(getApplicationContext(), SHPUtils.NICKNAME);
+                message.content = content.getText().toString();
+                messagesList.add(0, message);
+                messageDatailAdapter.setData(messagesList);
+                content.setText("");
+
+                edit.putString("content", content.getText().toString());
+                edit.apply();
+            }
+        } else if (type == 1) {
+            String contentStr = sharedPreferences.getString("content", "");
+            Log.e("result", "sendMessage: " + contentStr);
+            if (!contentStr.equals("")) {
+                sendChat(contentStr);
+
+                LiveDetailMessage message = new LiveDetailMessage();
+                message.avatar = SHPUtils.getParame(getApplicationContext(), SHPUtils.HEAD);
+                message.nickname = SHPUtils.getParame(getApplicationContext(), SHPUtils.NICKNAME);
+                message.content = contentStr;
+                messagesList.add(0, message);
+                messageDatailAdapter.setData(messagesList);
+                content.setText("");
+            }
         }
     }
 
@@ -458,6 +554,7 @@ public class LiveDetailActivity extends BaseActivity {
 
     private LiveDetailModel liveModel;
     private String bofangURL;
+
     public void getData() {
 
         showLoadingDialog();
@@ -496,7 +593,7 @@ public class LiveDetailActivity extends BaseActivity {
 
     private void setData(LiveDetailModel model) {
         tvTitle.setText(model.title);
-        guangboContent.setText(model.title+",欢迎互动");
+        guangboContent.setText(model.title + ",欢迎互动");
         if (model.is_collection == 1) {
             shoucang.setImageResource(R.mipmap.soucang_pressed);
         } else {

@@ -92,6 +92,14 @@ public class UserInfoActivity extends BaseActivity {
         setTitle("账号信息");
         getUserInfo();
         login();
+
+        tvPhonenum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserInfoActivity.this, ChangeBindPhoneActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setheadImg(String path) {
@@ -299,7 +307,7 @@ public class UserInfoActivity extends BaseActivity {
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
 
         if (requestCode == MY_PERMISSIONS_REQUEST_CALL_PHONE) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED&&grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                 getImg();
             } else {
                 // Permission Denied

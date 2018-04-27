@@ -131,5 +131,7 @@ public class HttpConfig {
 
     public final static String  SHARE= "member/share"; //分享链接
 
+    public final static  String PRODUCT_DETAIL="product/detail";//商品详情
+
 
 }

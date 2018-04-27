@@ -132,4 +132,7 @@ dependencies {
     compileOnly 'org.glassfish:javax.annotation:10.0-b28'
     implementation 'org.jsoup:jsoup:1.10.2'
 //    compile 'com.karumi:dexter:1.0.3'
+
+    compile 'com.github.rey5137:material:1.2.2'
+    compile 'com.squareup.picasso:picasso:2.5.1'
 }

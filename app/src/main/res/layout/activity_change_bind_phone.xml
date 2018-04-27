@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:fitsSystemWindows="true"
+    tools:context="com.BlackDiamond2010.hzs.ui.activity.lives.activity.LoginActivity">
+
+    <include
+        android:id="@+id/top"
+        layout="@layout/top_view" />
+
+
+    <EditText
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/getcheck"
+        android:layout_alignBottom="@+id/getcheck"
+        android:layout_marginLeft="48dp"
+        android:layout_toStartOf="@+id/getcheck"
+        android:background="@null"
+        android:drawableLeft="@mipmap/shouji"
+        android:drawablePadding="30dp"
+        android:hint="11位新的手机号码"
+        android:inputType="phone"
+        android:paddingBottom="6dp"
+        android:singleLine="true"
+        android:textColor="@color/text_333"
+        android:textColorHint="@color/text_999"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/getcheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/top"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="101dp"
+        android:paddingBottom="6dp"
+        android:text="获取验证码"
+        android:textColor="#F37505"
+        android:textSize="14dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/et_phone"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@color/div_line" />
+
+    <EditText
+        android:id="@+id/et_checkcode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_phone"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="30dp"
+        android:background="@null"
+        android:drawableLeft="@mipmap/yanzheng"
+        android:drawablePadding="30dp"
+        android:hint="验证码"
+        android:paddingBottom="6dp"
+        android:textColor="@color/text_333"
+        android:textColorHint="@color/text_999"
+        android:textSize="14dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/et_checkcode"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@color/div_line" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/et_checkcode"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@color/div_line" />
+
+    <TextView
+        android:id="@+id/rl_mima"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_checkcode"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:id="@+id/tv_rigst"
+        style="@style/TextStyle_14_black"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_below="@+id/rl_mima"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="70dp"
+        android:background="@color/red"
+        android:gravity="center"
+        android:text="保存"
+        android:textColor="#ffffff" />
+
+
+</RelativeLayout>

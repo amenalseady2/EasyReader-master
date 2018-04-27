@@ -1,6 +1,7 @@
 package com.BlackDiamond2010.hzs.ui.activity.lives.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -90,9 +91,9 @@ public class LoginActivity extends BaseActivity {
         tvRight.setText("去注册");
         tvRight.setVisibility(View.VISIBLE);
 
-        if (!StringUtil.isEmpty(SHPUtils.getParame(getApplicationContext(),SHPUtils.PASSWORD))){
-            etName.setText(SHPUtils.getParame(getApplicationContext(),SHPUtils.PHONE_LOGIN));
-            etPassword.setText(SHPUtils.getParame(getApplicationContext(),SHPUtils.PASSWORD));
+        if (!StringUtil.isEmpty(SHPUtils.getParame(getApplicationContext(), SHPUtils.PASSWORD))) {
+            etName.setText(SHPUtils.getParame(getApplicationContext(), SHPUtils.PHONE_LOGIN));
+            etPassword.setText(SHPUtils.getParame(getApplicationContext(), SHPUtils.PASSWORD));
             tvAgree.setChecked(true);
 
             etName.addTextChangedListener(new TextWatcher() {
@@ -130,13 +131,18 @@ public class LoginActivity extends BaseActivity {
                     @Override
                     public void onResponse(Object result, String msg) {
 //                        mackToastLONG(msg, LoginActivity.this);
+                        SharedPreferences sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
+                        SharedPreferences.Editor edit = sharedPreferences.edit();
+                        edit.putString("password", etPassword.getText().toString());
+                        edit.apply();
+
                         String token = result.toString().split("=")[1];
                         SHPUtils.saveParame(getApplicationContext(), SHPUtils.TOKEN, token);
                         SHPUtils.saveParame(getApplicationContext(), SHPUtils.PHONE, etName.getText().toString());
 
-                        if (tvAgree.isChecked()){
-                            SHPUtils.saveParame(getApplicationContext(),SHPUtils.PASSWORD,etPassword.getText().toString());
-                            SHPUtils.saveParame(getApplicationContext(),SHPUtils.PHONE_LOGIN,etName.getText().toString());
+                        if (tvAgree.isChecked()) {
+                            SHPUtils.saveParame(getApplicationContext(), SHPUtils.PASSWORD, etPassword.getText().toString());
+                            SHPUtils.saveParame(getApplicationContext(), SHPUtils.PHONE_LOGIN, etName.getText().toString());
 
                         }
 
@@ -386,9 +392,9 @@ public class LoginActivity extends BaseActivity {
 
                     @Override
                     public void onResponse(LoginModel result, String msg) {
-//                        mackToastLONG(msg, LoginActivity.this);
+                       //mackToastLONG(msg, LoginActivity.this);
                         String token = result.token;
-                        SHPUtils.saveParame(getApplicationContext(),SHPUtils.TOKEN,token);
+                        SHPUtils.saveParame(getApplicationContext(), SHPUtils.TOKEN, token);
                         int isbind = result.is_bind;
                         isBinded(token, openid, name, hPath, isbind);
                     }
@@ -410,29 +416,29 @@ public class LoginActivity extends BaseActivity {
 
     public void getUserInfo() {
 
-            addMainSubscription(HttpUtil.getInstance(MyApplication.instance.getApplicationContext()).sendRequest().getUserdetailInfo(AndroidUtils.getAndroidId(MyApplication.instance.getApplicationContext())),
-                    new HttpResultCall<HttpResult<UserInfo>, UserInfo>() {
+        addMainSubscription(HttpUtil.getInstance(MyApplication.instance.getApplicationContext()).sendRequest().getUserdetailInfo(AndroidUtils.getAndroidId(MyApplication.instance.getApplicationContext())),
+                new HttpResultCall<HttpResult<UserInfo>, UserInfo>() {
 
-                        @Override
-                        public void onResponse(UserInfo result, String msg) {
-                            SHPUtils.saveParame(getApplicationContext(),SHPUtils.PHONE,result.phone);
-                            SHPUtils.saveParame(getApplicationContext(),SHPUtils.REAL_NAME,result.realname);
-                            SHPUtils.saveParame(getApplicationContext(),SHPUtils.CONPANY,result.company);
-                            SHPUtils.saveParame(getApplicationContext(),SHPUtils.JOB,result.job);
+                    @Override
+                    public void onResponse(UserInfo result, String msg) {
+                        SHPUtils.saveParame(getApplicationContext(), SHPUtils.PHONE, result.phone);
+                        SHPUtils.saveParame(getApplicationContext(), SHPUtils.REAL_NAME, result.realname);
+                        SHPUtils.saveParame(getApplicationContext(), SHPUtils.CONPANY, result.company);
+                        SHPUtils.saveParame(getApplicationContext(), SHPUtils.JOB, result.job);
 //                            SHPUtils.saveParame(getApplicationContext(),SHPUtils.ISVIP,result.is_vip);
-                        }
+                    }
 
-                        @Override
-                        public void onErr(String err, int status) {
-                            super.onErr(err, status);
-                        }
+                    @Override
+                    public void onErr(String err, int status) {
+                        super.onErr(err, status);
+                    }
 
-                        @Override
-                        public void onCompleted() {
-                            super.onCompleted();
-                            dismissDialog();
-                        }
-                    });
+                    @Override
+                    public void onCompleted() {
+                        super.onCompleted();
+                        dismissDialog();
+                    }
+                });
 
 //
         addMainSubscription(HttpUtil.getInstance(MyApplication.instance.getApplicationContext()).sendRequest().getUserInfo(AndroidUtils.getAndroidId(MyApplication.instance.getApplicationContext())
@@ -454,7 +460,7 @@ public class LoginActivity extends BaseActivity {
                             SHPUtils.saveParame(getApplicationContext(), SHPUtils.INVATATION, result.invatation);
                         }
                         SHPUtils.saveParame(getApplicationContext(), SHPUtils.PERCENT, result.percent + "");
-                        SHPUtils.saveParame(getApplicationContext(),SHPUtils.ISVIP,result.is_vip);
+                        SHPUtils.saveParame(getApplicationContext(), SHPUtils.ISVIP, result.is_vip);
 
                         setResult(999, new Intent());
                         CommonUtils.startAct(LoginActivity.this, LiveMainActivity.class);

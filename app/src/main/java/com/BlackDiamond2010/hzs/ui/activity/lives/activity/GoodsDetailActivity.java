@@ -1,6 +1,7 @@
 package com.BlackDiamond2010.hzs.ui.activity.lives.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -8,15 +9,24 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnticipateInterpolator;
+import android.view.animation.BounceInterpolator;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.BlackDiamond2010.hzs.R;
 import com.BlackDiamond2010.hzs.app.MyApplication;
+import com.BlackDiamond2010.hzs.bean.ProductDetails.Product;
+import com.BlackDiamond2010.hzs.http.service.ProductDetailService;
+import com.BlackDiamond2010.hzs.http.service.ShopCartService;
 import com.BlackDiamond2010.hzs.ui.activity.base.BaseActivity;
 import com.BlackDiamond2010.hzs.ui.activity.lives.adapter.MainAdapter;
 import com.BlackDiamond2010.hzs.ui.activity.lives.bean.AlbumBean;
@@ -31,17 +41,30 @@ import com.BlackDiamond2010.hzs.ui.activity.lives.network.HttpResultCall;
 import com.BlackDiamond2010.hzs.ui.activity.lives.network.HttpUtil;
 import com.BlackDiamond2010.hzs.ui.activity.lives.util.AndroidUtils;
 import com.BlackDiamond2010.hzs.ui.activity.lives.util.CommonUtils;
+import com.BlackDiamond2010.hzs.ui.activity.lives.util.SHPUtils;
 import com.BlackDiamond2010.hzs.ui.activity.lives.util.ShareUtil;
 import com.BlackDiamond2010.hzs.ui.fragment.home.HomeFragment;
 import com.BlackDiamond2010.hzs.utils.GlideUtils;
 import com.BlackDiamond2010.hzs.view.AutoScrollViewPager;
 import com.BlackDiamond2010.hzs.view.XImageView;
+import com.rey.material.app.BottomSheetDialog;
+import com.squareup.picasso.Picasso;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class GoodsDetailActivity extends BaseActivity {
 
@@ -103,6 +126,17 @@ public class GoodsDetailActivity extends BaseActivity {
     @BindView(R.id.iv_right)
     ImageView ivRight;
 
+    Product product = null;
+
+    //选中的颜色
+    String select_color_type = null;
+
+    //选中的尺寸
+    String select_size_type = null;
+
+    //总价
+    double total = 0;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_goods_detail;
@@ -119,9 +153,29 @@ public class GoodsDetailActivity extends BaseActivity {
         ivRight2.setBackgroundResource(R.drawable.fenxiang_anli);
         getData(id);
 
+        getProductData(id);
 
     }
 
+    private void getProductData(String id) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://47.95.224.184/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ProductDetailService productDetailService = retrofit.create(ProductDetailService.class);
+        Call<Product> call = productDetailService.product(id);
+        call.enqueue(new Callback<Product>() {
+            @Override
+            public void onResponse(Call<Product> call, Response<Product> response) {
+                product = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<Product> call, Throwable t) {
+
+            }
+        });
+    }
 
     private void getData(String id) {
         addMainSubscription(HttpUtil.getInstance(MyApplication.instance.getApplicationContext()).sendRequest().
@@ -149,6 +203,36 @@ public class GoodsDetailActivity extends BaseActivity {
     }
 
     private void addShopCart(String id) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://47.95.224.184/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        String spec = "大小," + select_size_type + " " + "颜色," + select_color_type;
+        ShopCartService shopCartService = retrofit.create(ShopCartService.class);
+        Call<ResponseBody> call = shopCartService.addCart(SHPUtils.getParame(getApplicationContext(), SHPUtils.TOKEN),
+                Integer.parseInt(id), "1", spec, defalut_num);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response.body().string());
+                    int code = jsonObject.optInt("code");
+                    String msg = jsonObject.optString("msg");
+                    if (code == 200) {
+                        Intent intent = new Intent(GoodsDetailActivity.this, ShopCartActivity.class);
+                        startActivity(intent);
+                    }
+                    mackToastLONG(msg, GoodsDetailActivity.this);
+                } catch (JSONException | IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                mackToastSHORT(t.getMessage(), GoodsDetailActivity.this);
+            }
+        });
         addMainSubscription(HttpUtil.getInstance(MyApplication.instance.getApplicationContext()).sendRequest().
                         addordeleteShopcart(1, id, "", AndroidUtils.getAndroidId(this)),
                 new HttpResultCall<HttpResult<Object>, Object>() {
@@ -178,9 +262,15 @@ public class GoodsDetailActivity extends BaseActivity {
 
     GoodDetailModel model;
 
+    BottomSheetDialog bottomInterDialog;
+
+    String imgFirst;
+
+    int defalut_num = 1;
+
     private void setData(GoodDetailModel model) {
         this.model = model;
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(StaticConstant.sWidth,StaticConstant.sWidth);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(StaticConstant.sWidth, StaticConstant.sWidth);
         homeViewpagerRela.setLayoutParams(lp);
 
         //-------------下面三个fragment------------
@@ -246,6 +336,7 @@ public class GoodsDetailActivity extends BaseActivity {
         mGoodsModel.name = model.detail.name;
         mGoodsModel.price = model.detail.price;
 
+
         //广告业
         List<String> urlList = new ArrayList<>();
         if (model.detail.slider != null && !"".equals(model.detail.slider)) {
@@ -260,6 +351,7 @@ public class GoodsDetailActivity extends BaseActivity {
             } else {
                 urlList.add(model.detail.slider);
                 mGoodsModel.cover = model.detail.slider;
+                imgFirst = model.detail.slider;
             }
         }
         advertisement(urlList);
@@ -284,12 +376,12 @@ public class GoodsDetailActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.xiangqing, R.id.xuzhi, R.id.pingjia, R.id.buy, R.id.join, R.id.togouwuche, R.id.iv_right,R.id.iv_right2})
+    @OnClick({R.id.xiangqing, R.id.xuzhi, R.id.pingjia, R.id.buy, R.id.join, R.id.togouwuche, R.id.iv_right, R.id.iv_right2})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_right2:
-                if (model.detail.share == null || "".equals(model.detail.share)){
-                    mackToastSHORT("链接突然消失，大侠正在火速搜寻中",GoodsDetailActivity.this);
+                if (model.detail.share == null || "".equals(model.detail.share)) {
+                    mackToastSHORT("链接突然消失，大侠正在火速搜寻中", GoodsDetailActivity.this);
                     return;
                 }
 
@@ -309,17 +401,21 @@ public class GoodsDetailActivity extends BaseActivity {
 
             case R.id.join:
                 //TODO  jiaru gouwuche
-                addShopCart(id);
+                //弹出选择商品
+                showProduct(mGoodsModel, 0);
+                //addShopCart(id);
                 break;
 
             case R.id.buy:
-                ArrayList<GoodsModel> goodsListid = new ArrayList<>();
+                //弹出选择商品
+                showProduct(mGoodsModel, 1);
+                /*ArrayList<GoodsModel> goodsListid = new ArrayList<>();
                 goodsListid.add(mGoodsModel);
                 Intent intent = new Intent(GoodsDetailActivity.this, SuerOrderActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("list", goodsListid);
                 intent.putExtra("bundle", bundle);
-                startActivity(intent);
+                startActivity(intent);*/
 
 
                 break;
@@ -339,6 +435,185 @@ public class GoodsDetailActivity extends BaseActivity {
                 //                home.setCurrentP(0);
                 viewpager.setCurrentItem(2);
                 break;
+        }
+    }
+
+    private void showProduct(final GoodsModel mGoodsModel, final Integer type) {
+        View view = LayoutInflater.from(this).inflate(R.layout.bottom_product_choose, null);
+        bottomInterDialog = new BottomSheetDialog(GoodsDetailActivity.this);
+        bottomInterDialog
+                .contentView(view)
+                .inDuration(500)
+                .outDuration(500)
+                .inInterpolator(new BounceInterpolator())
+                .outInterpolator(new AnticipateInterpolator())
+                .cancelable(true)
+                .show();
+
+        ImageView bottom_cha = view.findViewById(R.id.bottom_cha);
+        ImageView bottom_product_img = view.findViewById(R.id.bottom_product_img);
+        Picasso.with(this).load(imgFirst).error(R.mipmap.luyan_logo).placeholder(R.mipmap.luyan_logo).into(bottom_product_img);
+
+        TextView title = view.findViewById(R.id.textView5);
+        if (model.detail.name.length() > 15) {
+            model.detail.name = model.detail.name.substring(0, 15) + "...";
+        }
+        title.setText(model.detail.name);
+        TextView bottom_price = view.findViewById(R.id.bottom_price);
+        bottom_price.setText("￥" + model.detail.price);
+        TextView bottom_num = view.findViewById(R.id.bottom_num);
+        bottom_num.setText("库存" + model.detail.stock + "件");
+
+
+        //颜色
+        final LinearLayout color_lin = view.findViewById(R.id.color_lin);
+        String color_str = product.getData().getDetail().getSpec().get(1).getItem();
+        if (!color_str.equals("")) {
+            final String[] color_types_str = color_str.split(",");
+            final Button color_types[] = new Button[color_types_str.length];
+            for (int i = 0; i < color_types_str.length; i++) {
+                final LinearLayout ll = (LinearLayout) LayoutInflater.from(GoodsDetailActivity.this).inflate(R.layout.bottom_color_button_style, null);
+                ll.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1));//此处设置权重
+                final Button btn = ll.findViewById(R.id.color_btn);
+                btn.setText(color_types_str[i]);
+                btn.setTextColor(Color.rgb(51, 51, 51));
+                color_types[i] = btn;
+                color_lin.addView(ll);
+            }
+            for (int j = 0; j < color_lin.getChildCount(); j++) {
+                final Button bt = color_lin.getChildAt(j).findViewById(R.id.color_btn);
+                final int temp = j;
+                bt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        setColorType(temp, color_types, color_types_str);
+                    }
+                });
+            }
+        } else {
+            TextView textView = new TextView(this);
+            textView.setText("暂无");
+            textView.setTextSize(16);
+            color_lin.addView(textView);
+        }
+
+
+        //尺寸
+        final LinearLayout size_lin = view.findViewById(R.id.size_lin);
+        String size_str = product.getData().getDetail().getSpec().get(0).getItem();
+        if (!size_str.equals("")) {
+            final String[] size_type_str = size_str.split(",");
+            final Button size_types[] = new Button[size_type_str.length];
+            for (int i = 0; i < size_type_str.length; i++) {
+                final LinearLayout ll = (LinearLayout) LayoutInflater.from(GoodsDetailActivity.this).inflate(R.layout.bottom_size_button_style, null);
+                ll.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1));//此处设置权重
+                final Button btn = ll.findViewById(R.id.size_btn);
+                btn.setText(size_type_str[i]);
+                btn.setTextColor(Color.rgb(51, 51, 51));
+                size_types[i] = btn;
+                size_lin.addView(ll);
+            }
+            for (int j = 0; j < size_lin.getChildCount(); j++) {
+                final Button bt = size_lin.getChildAt(j).findViewById(R.id.size_btn);
+                final int temp = j;
+                bt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        setSizeType(temp, size_types, size_type_str);
+                    }
+                });
+            }
+        } else {
+            TextView textView = new TextView(this);
+            textView.setText("暂无");
+            textView.setTextSize(16);
+            size_lin.addView(textView);
+        }
+
+        Button reduce = view.findViewById(R.id.reduce);
+        final Button buy_num = view.findViewById(R.id.buy_num);
+        Button add = view.findViewById(R.id.add_btn);
+
+        reduce.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (defalut_num == 1) {
+                    Toast.makeText(GoodsDetailActivity.this, "最低买1份", Toast.LENGTH_SHORT).show();
+                } else {
+                    defalut_num -= 1;
+                    buy_num.setText(defalut_num + "");
+                    total = Double.parseDouble(model.detail.price) * defalut_num;
+                }
+            }
+        });
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                defalut_num += 1;
+                buy_num.setText(defalut_num + "");
+                total = Double.parseDouble(model.detail.price) * defalut_num;
+            }
+        });
+
+        Button bottom_ok = view.findViewById(R.id.bottom_ok);
+        bottom_ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*
+                 * 根据0,1判断是加入购物车还是立即购买
+                 * */
+                if (type == 0) {
+                    addShopCart(id);
+                } else if (type == 1) {
+                    ArrayList<GoodsModel> goodsListid = new ArrayList<>();
+                    goodsListid.add(mGoodsModel);
+                    Intent intent = new Intent(GoodsDetailActivity.this, SuerOrderActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("list", goodsListid);
+                    intent.putExtra("bundle", bundle);
+                    intent.putExtra("total", total);
+                    intent.putExtra("select_color", select_color_type);
+                    intent.putExtra("select_size", select_size_type);
+                    startActivity(intent);
+                }
+                if (bottomInterDialog != null && bottomInterDialog.isShowing()) {
+                    bottomInterDialog.dismiss();
+                }
+            }
+        });
+        bottom_cha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (bottomInterDialog != null && bottomInterDialog.isShowing()) {
+                    bottomInterDialog.dismiss();
+                }
+            }
+        });
+    }
+
+    private void setSizeType(int temp, Button[] size_types, String type[]) {
+        for (int i = 0; i < size_types.length; i++) {
+            if (i == temp) {
+                size_types[i].setBackgroundResource(R.drawable.size_pressed);
+                select_size_type = type[i];
+                size_types[i].setTextColor(Color.WHITE);
+            } else {
+                size_types[i].setBackgroundResource(R.drawable.size);
+                size_types[i].setTextColor(Color.rgb(51, 51, 51));
+            }
+        }
+    }
+
+    private void setColorType(int temp, Button color_types[], String types[]) {
+        for (int i = 0; i < color_types.length; i++) {
+            if (i == temp) {
+                color_types[i].setBackgroundResource(R.drawable.first);
+                select_color_type = types[i];
+                color_types[i].setTextColor(Color.WHITE);
+            } else {
+                color_types[i].setBackgroundResource(R.drawable.second);
+                color_types[i].setTextColor(Color.rgb(51, 51, 51));
+            }
         }
     }
 

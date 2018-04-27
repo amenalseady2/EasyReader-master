@@ -2,6 +2,7 @@ package com.BlackDiamond2010.hzs.ui.activity.lives.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
@@ -68,6 +69,13 @@ public class BindPhoneActivity extends BaseActivity {
          name = getIntent().getStringExtra("name");
         headPath = getIntent().getStringExtra("headPath");
         token = getIntent().getStringExtra("token");
+
+        SharedPreferences sharedPreferences=getSharedPreferences("userInfo",MODE_PRIVATE);
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putString("name",name);
+        edit.putString("headPath",headPath);
+        edit.putString("token",token);
+        edit.apply();
         xieyi.getPaint().setFlags(Paint. UNDERLINE_TEXT_FLAG );
         setTitle("绑定手机");
 

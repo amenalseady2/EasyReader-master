@@ -164,7 +164,7 @@ public class EvaluateActivity extends BaseActivity {
                         setheadImg(pathImg);
                     }
                 }
-//                getData(id);
+              getData(id);
                 break;
         }
     }

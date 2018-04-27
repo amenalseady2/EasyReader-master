@@ -142,6 +142,8 @@ public class SuerOrderActivity extends BaseActivity {
                     }
                 });
 
+        paymentmoney.setText("￥"+getIntent().getDoubleExtra("total",0));
+
 //        //加数据
 //        MyOrderItem item = new MyOrderItem();
 //        item.order_sn = "NO11201711221109052548";
